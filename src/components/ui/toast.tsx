@@ -110,7 +110,11 @@ const ToastDescription = React.forwardRef<
 ))
 ToastDescription.displayName = ToastPrimitives.Description.displayName
 
-export type { ToastActionElement, ToastProps } from "@/components/ui/toast"
+// ---- Types (define locally to avoid circular alias) ----
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
+type ToastActionElement = React.ReactElement<typeof ToastAction>
+
+// ---- Exports ----
 export {
   ToastProvider,
   ToastViewport,
@@ -121,3 +125,4 @@ export {
   ToastAction,
 }
 
+export type { ToastProps, ToastActionElement }
