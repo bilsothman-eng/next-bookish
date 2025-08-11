@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 45 100% 96%;
+    --foreground: 195 100% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 195 100% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 195 100% 8%;
+
+    --primary: 195 100% 12%;
+    --primary-foreground: 45 100% 96%;
+
+    --secondary: 35 100% 60%;
+    --secondary-foreground: 195 100% 12%;
+
+    --muted: 45 50% 90%;
+    --muted-foreground: 195 50% 40%;
+
+    --accent: 35 100% 50%;
+    --accent-foreground: 195 100% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 45 30% 85%;
+    --input: 45 30% 85%;
+    --ring: 35 100% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(35 100% 60%), hsl(35 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(35 100% 65%) 0%, hsl(30 100% 55%) 100%);
+    --shadow-warm: 0 10px 30px -5px hsl(35 100% 50% / 0.3);
+    --shadow-glow: 0 0 40px hsl(35 100% 60% / 0.4);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+@theme inline {
+  /* Map our design tokens to Tailwind v4 color/radius tokens */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* Optional: sidebar palette if used as utilities */
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+
+  /* Radius tokens used by rounded-* utilities */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/* Custom keyframes/utilities must not be defined via @utility here in Tailwind v4.
+   Instead, we’ll provide plain CSS classes so they aren’t rejected as nested @utility. */
+
+/* Animations for accordion */
+@keyframes accordion-down { from { height: 0 } to { height: var(--radix-accordion-content-height) } }
+@keyframes accordion-up { from { height: var(--radix-accordion-content-height) } to { height: 0 } }
+
+/* Provide class names that match usage in components */
+.animate-accordion-down { animation: accordion-down 0.2s ease-out; }
+.animate-accordion-up { animation: accordion-up 0.2s ease-out; }
+
+/* Gradient and shadow utility classes */
+.bg-gradient-primary { background-image: var(--gradient-primary); }
+.bg-gradient-hero { background-image: var(--gradient-hero); }
+
+.shadow-warm { box-shadow: var(--shadow-warm); }
+.shadow-glow { box-shadow: var(--shadow-glow); }
+
+
+
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
